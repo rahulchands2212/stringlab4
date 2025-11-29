@@ -1,66 +1,73 @@
 /*
-Write a program that receives an integer
-(less than or equal to nine
-digits in length) and prints out the number
-in words. For example, if
-the number input is 12342, then the output
-should be Twelve
-Thousand Three Hundred Forty Two
+Write a program that receives an integer 
+(max 9 digits) and prints the number in words.
 */
 
 #include<stdio.h>
 
-int main(){
-    char ones[10][10] = {"","one","two","three","four","five","six","seven","eight","nine"};
-    char teens[10][10] = {"ten","eleven","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
-    char tens[10][10] = {"","","twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninty"};
-    char group[3][10] = {"","thousand","million"};
+int main()
+{
+    // Words Arrays
+    char *ones[30]  = {"","One","Two","Three","Four","Five",
+                     "Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen",
+                     "Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
 
-    //input number ;
-    long int number;
-    printf("enter number (not more then 9 digit) = ");
-    scanf("%ld",&number);
+    char *tens[30]  = {"","","Twenty","Thirty","Forty","Fifty",
+                     "Sixty","Seventy","Eighty","Ninety"};
 
-    if(number==0){
-        printf("Zero");
-        return 0;
-    }
+    //input;
+    long int n;
+    printf(" enter number : ");
+    scanf("%ld",&n);
 
-    int count=0;    //for index;
-    while(number>0){
-        int part = number%1000; //last 3 number;
-        number = number/1000;   //remove last 3 number;
-
-        if(part!=0){
-            int h = part/100;   //hundred
-            int t = (part/10)%10;   //tens
-            int o = part%10;    //ones
-
-            //hundred
-            if(h>0){
-                printf("%s hundred ",ones[h]);
-            }
-
-            //teens
-            if(t==1){
-                printf("%s ",teens[o]);
-            }else{
-
-                //tens 20 - 90;
-                if(t>1){
-                    printf("%s ",tens[t]);
-                }
-
-                //ones (1-9)
-                if(o>0){
-                    printf("%s ",ones[o]);
-                }
-            }
-            printf("%s ",group[count]);
-
-
+    //crore;
+    int part = n/10000000;
+    if(part>0){
+        if(part<20){
+            printf("%s crore ",ones[part]);
+        }else{
+            printf("%s %s crore ",tens[part/10],ones[part%10]);
         }
-        count++;
     }
+    n=n%10000000;
+
+    //lakh;
+    part = n/100000;
+    if(part>0){
+        if(part<20){
+            printf("%s lakh ",ones[part]);
+        }else{
+            printf("%s %s lakh ",tens[part/10],ones[part%10]);
+        }
+    }
+    n=n%100000;
+
+    //thousand;
+    part = n/1000;
+    if(part>0){
+        if(part<20){
+            printf("%s thousand ",ones[part]);
+        }else{
+            printf("%s %s thousand ",tens[part/10],ones[part%10]);
+        }
+    }
+    n = n%1000;
+
+    //hundred;
+    part = n/100;
+    if(part>0){
+            printf("%s hundred ",ones[part]);
+    }
+    n=n%100;
+
+    //ones;
+    if(n>0){
+        if(n<20){
+            printf("%s ",ones[n]);
+        }else{
+            printf("%s %s ",tens[n/10],ones[n%10]);
+        }
+    }
+
     return 0;
-}
+    }
