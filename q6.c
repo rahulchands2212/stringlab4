@@ -16,10 +16,10 @@ int main(){
     int i=0;
     //check sentence until NULL point;
     while(string[i]!='\0'){
-        if(string[i]=='t'||string[i]=='T' &&
-            string[i+1]=='h'||string[i+1]=='H' &&
-            string[i+2]=='e'||string[i+2]=='E' &&
-            string[i+3]== ' '|| string[i+3]=='\0'){
+        if((string[i]=='t'||string[i]=='T') &&
+            (string[i+1]=='h'||string[i+1]=='H') &&
+            (string[i+2]=='e'||string[i+2]=='E') &&
+            (string[i+3]== ' '|| string[i+3]=='\0')){
 
             //prevent from jump index;
             int j=i;
