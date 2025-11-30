@@ -24,7 +24,7 @@ int main(){
     string_2[i] = '\0';
     
     //print result;
-    printf("after copy in other string :-\n%s",string_2);
+    printf("print after copy in other string :-\n%s",string_2);
 
     return 0;
 
