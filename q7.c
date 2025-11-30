@@ -35,6 +35,7 @@ int main(){
                 string[i+1]=='i'||string[i+1]=='I'||
                 string[i+1]=='o'||string[i+1]=='O'||
                 string[i+1]=='u'||string[i+1]=='U' ){
+                printf("Found succession: %c%c\n",string[i],string[i+1]);
                     //if both true then count ++;
                     count++;    
 
