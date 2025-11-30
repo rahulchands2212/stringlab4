@@ -10,7 +10,7 @@ int main(){
     char string_2[50];
 
     //take input;
-    printf("write here :-\n");
+    printf("enter message :-\n");
     gets(string_1);
 
     //logic;
@@ -24,7 +24,7 @@ int main(){
     string_2[i] = '\0';
     
     //print result;
-    printf("%s",string_2);
+    printf("after copy in other string :-\n%s",string_2);
 
     return 0;
 
