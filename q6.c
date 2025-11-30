@@ -29,7 +29,7 @@ int main(){
                 string[j] = string[j+4];
                 j++;
             }
-         
+
         //use i-- before i++ check the shift digit;
             i--;
         }
@@ -38,7 +38,7 @@ int main(){
     }
 
     //print output after remove "the" from the sentence;
-    printf("%s",string);
+    printf("after remove 'the' :-\n%s",string);
 
     return 0;
 }
